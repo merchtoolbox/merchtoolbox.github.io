@@ -6,6 +6,7 @@
     <meta name="description" content="Find the perfect pet food for your furry friend with PetFoodMatch. Tailored recommendations for your pet’s breed, age, and dietary needs.">
     <title>PetFoodMatch - Find the Perfect Food for Your Pet</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
@@ -13,14 +14,31 @@
         <p>Tailored recommendations for your pet’s breed, age, and dietary needs. Get started with our easy-to-use pet food matching tool!</p>
     </header>
 
-    <section class="how-it-works">
-        <h2>How It Works</h2>
-        <ol>
-            <li><strong>Enter Your Pet’s Information</strong> - Provide your pet's breed, age, weight, and any dietary preferences or restrictions.</li>
-            <li><strong>See Recommended Pet Foods</strong> - Our algorithm matches your pet’s needs to top-rated pet foods on the market.</li>
-            <li><strong>Order Online</strong> - Select from the recommended options and have it delivered right to your door through trusted retailers like Chewy, Petco, or Amazon.</li>
-        </ol>
-        <button>Start Now</button>
+    <section class="calculator">
+        <h2>Pet Food Matching Tool</h2>
+        <form id="pet-form">
+            <label for="breed">Pet Breed:</label>
+            <input type="text" id="breed" name="breed" required>
+
+            <label for="age">Pet Age (in years):</label>
+            <input type="number" id="age" name="age" min="0" required>
+
+            <label for="weight">Pet Weight (in lbs):</label>
+            <input type="number" id="weight" name="weight" min="1" required>
+
+            <label for="diet">Dietary Preferences:</label>
+            <select id="diet" name="diet">
+                <option value="none">No Special Preferences</option>
+                <option value="grain-free">Grain-Free</option>
+                <option value="hypoallergenic">Hypoallergenic</option>
+                <option value="senior">Senior Formula</option>
+                <option value="puppy">Puppy Formula</option>
+            </select>
+
+            <button type="submit">Find the Best Food</button>
+        </form>
+
+        <div id="results"></div>
     </section>
 
     <section class="featured-brands">
@@ -39,32 +57,6 @@
         </div>
     </section>
 
-    <section class="testimonials">
-        <h2>Customer Testimonials</h2>
-        <blockquote>
-            "I was struggling to find the right food for my cat with allergies, but PetFoodMatch pointed me to a grain-free option that she loves! I couldn’t be happier!" – Sarah, owner of Bella the Siamese Cat
-        </blockquote>
-        <blockquote>
-            "My senior dog needed a low-fat diet, and this tool helped me find the perfect food to manage his weight. It's been a lifesaver!" – Mark, owner of Max the Golden Retriever
-        </blockquote>
-    </section>
-
-    <section class="blog-posts">
-        <h2>Popular Blog Posts</h2>
-        <article>
-            <h3>Top 10 Foods for Dogs with Sensitive Stomachs</h3>
-            <p>Learn about the best dog foods for sensitive digestive systems, from limited ingredient diets to grain-free options. <a href="#">Read more</a></p>
-        </article>
-        <article>
-            <h3>5 Nutritional Tips for Aging Cats</h3>
-            <p>Discover how to support your senior cat’s health with specialized nutrition designed to help them age gracefully. <a href="#">Read more</a></p>
-        </article>
-        <article>
-            <h3>Grain-Free vs. Grain-Inclusive Diets: Which is Right for Your Dog?</h3>
-            <p>Explore the pros and cons of grain-free pet foods and whether they are the right choice for your dog’s diet. <a href="#">Read more</a></p>
-        </article>
-    </section>
-
     <section class="faq">
         <h2>FAQ</h2>
         <details>
@@ -74,10 +66,6 @@
         <details>
             <summary>Is grain-free food really better for my pet?</summary>
             <p>It depends on your pet’s individual health needs. We provide recommendations for both grain-free and grain-inclusive foods based on your input.</p>
-        </details>
-        <details>
-            <summary>How does the matching tool work?</summary>
-            <p>Our system uses data about your pet’s breed, age, and dietary preferences to provide you with a list of food options tailored to their needs.</p>
         </details>
     </section>
 
