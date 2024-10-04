@@ -1,97 +1,88 @@
-const dogFoodRecommendations = {
+const dogFoodData = {
     "Labrador Retriever": {
-        "<1": [
+        "Puppy": [
             {
-                name: "Royal Canin Labrador Retriever Puppy",
-                image: "https://cdn.royalcanin.com/royalcanin/dog-2019/images/product/2840-4d9e94.jpg",
-                link: "https://www.royalcanin.com/us/dogs/products/retail/labrador-retriever-puppy-dry-dog-food"
+                "brand": "Royal Canin Labrador Retriever Puppy",
+                "image": "https://example.com/royal-canin-labrador-puppy.jpg",
+                "link": "https://www.chewy.com/royal-canin-labrador-retriever-puppy/dp/158428",
             },
             {
-                name: "Hill's Science Diet Puppy Large Breed",
-                image: "https://www.hillspet.com/-/media/hills/dog-food/hills-science-diet-large-breed-puppy-dry-dog-food/size-180-10-46-300-72-1.png",
-                link: "https://www.hillspet.com/dog-food/sd-canine-large-breed-puppy"
+                "brand": "Hill's Science Diet Puppy Large Breed",
+                "image": "https://example.com/hills-science-diet-puppy.jpg",
+                "link": "https://www.chewy.com/hills-science-diet-large-breed-puppy/dp/282173",
             },
-            {
-                name: "Purina Pro Plan Puppy Large Breed",
-                image: "https://www.proplan.com/dogs/wp-content/uploads/sites/15/2017/07/puppy-large-breed.jpg",
-                link: "https://www.proplan.com/dogs/products/pro-plan-puppy-large-breed/"
-            },
-            {
-                name: "Blue Buffalo Life Protection Puppy",
-                image: "https://www.bluebuffalo.com/wp-content/uploads/2021/07/Blue-Buffalo-Dog-Food-Product-Page_Life-Protection-Puppy-Formula.jpg",
-                link: "https://bluebuffalo.com/dog-food/life-protection-formula/labrador-retriever-puppy/"
-            },
-            {
-                name: "Wellness Complete Health Puppy",
-                image: "https://www.wellnesspetfood.com/wp-content/uploads/2021/08/Wellness-Complete-Health-Puppy-1.jpg",
-                link: "https://www.wellnesspetfood.com/dog-food/complete-health-puppy/"
-            }
         ],
-        "1-6": [
+        "Adult": [
             {
-                name: "Blue Buffalo Life Protection Adult",
-                image: "https://www.bluebuffalo.com/wp-content/uploads/2021/07/Blue-Buffalo-Dog-Food-Product-Page_Life-Protection-Adult-Formula.jpg",
-                link: "https://bluebuffalo.com/dog-food/life-protection-formula/labrador-retriever-adult/"
+                "brand": "Blue Buffalo Life Protection Formula",
+                "image": "https://example.com/blue-buffalo-adult.jpg",
+                "link": "https://www.chewy.com/blue-buffalo-life-protection-formula/dp/292840",
             },
             {
-                name: "Merrick Grain-Free Texas Beef & Sweet Potato",
-                image: "https://www.merrickpetcare.com/wp-content/uploads/2021/05/Merrick-Texas-Beef-Recipe-Dry-Dog-Food-1.jpg",
-                link: "https://www.merrickpetcare.com/dog-food/grain-free/texas-beef-sweet-potato-recipe/"
+                "brand": "Royal Canin Labrador Retriever Adult",
+                "image": "https://example.com/royal-canin-labrador-adult.jpg",
+                "link": "https://www.chewy.com/royal-canin-labrador-retriever-adult/dp/291438",
             },
-            {
-                name: "Royal Canin Labrador Retriever Adult",
-                image: "https://cdn.royalcanin.com/royalcanin/dog-2019/images/product/2841-bf7e12.jpg",
-                link: "https://www.royalcanin.com/us/dogs/products/retail/labrador-retriever-adult-dry-dog-food"
-            },
-            {
-                name: "Purina Pro Plan Savor Adult",
-                image: "https://www.proplan.com/dogs/wp-content/uploads/sites/15/2017/07/savor-adult.jpg",
-                link: "https://www.proplan.com/dogs/products/pro-plan-savor-adult/"
-            },
-            {
-                name: "Wellness Core Grain-Free",
-                image: "https://www.wellnesspetfood.com/wp-content/uploads/2021/07/Wellness-Core-Grain-Free-Adult-Dog-Food.jpg",
-                link: "https://www.wellnesspetfood.com/dog-food/core-grain-free/"
-            }
         ],
-        "7+": [
+        "Senior": [
             {
-                name: "Hill's Science Diet Senior",
-                image: "https://www.hillspet.com/-/media/hills/dog-food/hills-science-diet-large-breed-senior-dry-dog-food/size-180-10-46-300-72-1.png",
-                link: "https://www.hillspet.com/dog-food/sd-canine-large-breed-senior"
+                "brand": "Hill's Science Diet Senior",
+                "image": "https://example.com/hills-science-diet-senior.jpg",
+                "link": "https://www.chewy.com/hills-science-diet-adult-senior/dp/269122",
             },
-            {
-                name: "Royal Canin Mature 8+",
-                image: "https://cdn.royalcanin.com/royalcanin/dog-2019/images/product/2842-43f5f8.jpg",
-                link: "https://www.royalcanin.com/us/dogs/products/retail/labrador-retriever-mature-8-dry-dog-food"
-            },
-            {
-                name: "Blue Buffalo Life Protection Senior",
-                image: "https://www.bluebuffalo.com/wp-content/uploads/2021/07/Blue-Buffalo-Dog-Food-Product-Page_Life-Protection-Senior-Formula.jpg",
-                link: "https://bluebuffalo.com/dog-food/life-protection-formula/labrador-retriever-senior/"
-            },
-            {
-                name: "Purina Pro Plan Bright Mind Senior",
-                image: "https://www.proplan.com/dogs/wp-content/uploads/sites/15/2017/07/bright-mind-senior.jpg",
-                link: "https://www.proplan.com/dogs/products/pro-plan-bright-mind-senior/"
-            },
-            {
-                name: "Merrick Grain-Free Senior",
-                image: "https://www.merrickpetcare.com/wp-content/uploads/2021/06/Merrick-Grain-Free-Senior-Dog-Food.jpg",
-                link: "https://www.merrickpetcare.com/dog-food/grain-free/senior-recipe/"
-            }
-        ]
+        ],
     },
-    // Additional breeds can be added in the same format.
+    "German Shepherd": {
+        "Puppy": [
+            {
+                "brand": "Royal Canin German Shepherd Puppy",
+                "image": "https://example.com/royal-canin-german-puppy.jpg",
+                "link": "https://www.chewy.com/royal-canin-german-shepherd-puppy/dp/292090",
+            },
+        ],
+        "Adult": [
+            {
+                "brand": "Taste of the Wild High Prairie",
+                "image": "https://example.com/taste-of-the-wild-adult.jpg",
+                "link": "https://www.chewy.com/taste-wild-high-prairie-adult/dp/103154",
+            },
+        ],
+        "Senior": [
+            {
+                "brand": "Wellness CORE Grain-Free Senior",
+                "image": "https://example.com/wellness-core-senior.jpg",
+                "link": "https://www.chewy.com/wellness-core-grain-free-senior/dp/186337",
+            },
+        ],
+    },
+    // Additional breeds and recommendations can be added here
 };
 
-// Example function to get recommendations
-function getRecommendations(breed, age) {
-    return dogFoodRecommendations[breed][age].map(food => `
-        <div class="food-item">
-            <h3>${food.name}</h3>
-            <img src="${food.image}" alt="${food.name}">
-            <a href="${food.link}" target="_blank">Shop Now</a>
-        </div>
-    `).join('');
+// Function to get dog food recommendations
+function getDogFoodRecommendations(breed, age) {
+    const recommendations = dogFoodData[breed][age];
+    let output = '<h2>Your Recommendations:</h2>';
+
+    if (recommendations) {
+        recommendations.forEach(food => {
+            output += `
+                <div class="food-item">
+                    <img src="${food.image}" alt="${food.brand}">
+                    <h3>${food.brand}</h3>
+                    <a href="${food.link}" target="_blank">Shop Now</a>
+                </div>
+            `;
+        });
+    } else {
+        output += '<p>No recommendations available for this selection.</p>';
+    }
+    document.getElementById('results').innerHTML = output;
 }
+
+// Event listener for the button
+document.getElementById('start-button').addEventListener('click', () => {
+    const breed = document.getElementById('breed').value;
+    const age = document.getElementById('age').value;
+
+    getDogFoodRecommendations(breed, age);
+});
