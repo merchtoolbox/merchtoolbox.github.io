@@ -6,32 +6,40 @@ document.getElementById('pet-form').addEventListener('submit', function(e) {
     const weight = document.getElementById('weight').value;
     const diet = document.getElementById('diet').value;
 
-    let recommendations = `<h3>Recommended Pet Foods for ${breed}:</h3>`;
+    // Clear previous results
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
 
-    if (diet === 'grain-free') {
-        recommendations += '<h4>Grain-Free Options:</h4><p>Blue Buffalo Wilderness, Wellness CORE, Taste of the Wild</p>';
-    } else if (diet === 'hypoallergenic') {
-        recommendations += '<h4>Hypoallergenic Options:</h4><p>Hill’s Science Diet Sensitive Stomach, Royal Canin Veterinary Diet, Purina Pro Plan Veterinary Diets</p>';
-    } else if (diet === 'senior' && parseInt(age) >= 7) {
-        recommendations += '<h4>Senior Pet Foods:</h4><p>Hill’s Science Diet Senior, Blue Buffalo Senior, Nutro Ultra Senior</p>';
-    } else if (diet === 'puppy' && age === '<1') {
-        recommendations += '<h4>Puppy Foods:</h4><p>Royal Canin Puppy, Blue Buffalo Puppy, Wellness Complete Health Puppy</p>';
+    // Simple recommendation logic based on breed, age, weight, and dietary preferences
+    let recommendations = '';
+
+    if (breed && age && weight) {
+        // Example specific recommendation logic
+        recommendations += `<h3>Best Food for a ${breed}:</h3>`;
+        
+        if (age === '<1') {
+            recommendations += '<p>We recommend a puppy formula with high protein and fat content for growth.</p>';
+        } else if (age >= '7') {
+            recommendations += '<p>Senior formulas with joint support and lower calories are ideal for older dogs.</p>';
+        } else {
+            recommendations += '<p>A balanced adult dog food with moderate protein and fat should work well.</p>';
+        }
+
+        if (diet === 'grain-free') {
+            recommendations += '<p>Look for grain-free options with ingredients like sweet potato and pea.</p>';
+        } else if (diet === 'hypoallergenic') {
+            recommendations += '<p>Hypoallergenic formulas with limited ingredients are best for dogs with sensitivities.</p>';
+        } else if (diet === 'senior') {
+            recommendations += '<p>Senior-specific formulas can help support joint health and weight management.</p>';
+        } else if (diet === 'puppy') {
+            recommendations += '<p>Puppy-specific formulas are designed for rapid growth and development.</p>';
+        }
+
+        // Add more specific recommendations here if desired
     } else {
-        recommendations += '<h4>General Recommendations:</h4><p>Purina Pro Plan, Royal Canin, Blue Buffalo</p>';
+        recommendations = '<p>Please fill out all fields to get recommendations.</p>';
     }
 
-    if (weight === '1-10') {
-        recommendations += '<p>For small dogs (1-10 lbs): Merrick Lil’ Plates, Blue Buffalo Small Breed</p>';
-    } else if (weight === '11-20') {
-        recommendations += '<p>For small-medium dogs (11-20 lbs): Merrick Lil’ Plates, Blue Buffalo Small Breed</p>';
-    } else if (weight === '21-30') {
-        recommendations += '<p>For medium dogs (21-30 lbs): Wellness Large Breed, Nutro Ultra Large Breed</p>';
-    } else if (weight === '81+') {
-        recommendations += '<p>For very large dogs (over 80 lbs): Wellness Large Breed, Nutro Ultra Large Breed</p>';
-    } else {
-        recommendations += `<p>We recommend checking the packaging for the weight guidelines of various brands.</p>`;
-    }
-
-    document.getElementById('results').innerHTML = recommendations;
+    // Display specific recommendations
+    resultsDiv.innerHTML = recommendations;
 });
-
