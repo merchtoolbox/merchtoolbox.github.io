@@ -34,3 +34,4 @@ document.getElementById('pet-form').addEventListener('submit', function(e) {
 
     document.getElementById('results').innerHTML = recommendations;
 });
+
