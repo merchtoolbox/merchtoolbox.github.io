@@ -10,32 +10,47 @@ document.getElementById('pet-form').addEventListener('submit', function(e) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
 
-    // Simple recommendation logic based on breed, age, weight, and dietary preferences
+    // Mapping for specific dog food recommendations
+    const recommendationsMap = {
+        'Labrador Retriever': {
+            '<1': ['Brand A Puppy Formula', 'Brand B Puppy Food'],
+            '1-6': ['Brand C Adult Dog Food', 'Brand D High-Protein'],
+            '7+': ['Brand E Senior Dog Food', 'Brand F Joint Support'],
+        },
+        'German Shepherd': {
+            '<1': ['Brand G Puppy Formula', 'Brand H High-Fat Puppy Food'],
+            '1-6': ['Brand I Adult Dog Food', 'Brand J Grain-Free'],
+            '7+': ['Brand K Senior Formula', 'Brand L Sensitive Stomach'],
+        },
+        // Add more breeds and their specific recommendations
+    };
+
     let recommendations = '';
 
     if (breed && age && weight) {
-        // Example specific recommendation logic
-        recommendations += `<h3>Best Food for a ${breed}:</h3>`;
-        
-        if (age === '<1') {
-            recommendations += '<p>We recommend a puppy formula with high protein and fat content for growth.</p>';
-        } else if (age >= '7') {
-            recommendations += '<p>Senior formulas with joint support and lower calories are ideal for older dogs.</p>';
+        // Retrieve recommendations based on breed, age, and dietary preference
+        if (recommendationsMap[breed]) {
+            recommendations += `<h3>Best Food for a ${breed}:</h3>`;
+            recommendations += `<ul>`;
+            const specificRecommendations = recommendationsMap[breed][age] || [];
+            specificRecommendations.forEach(brand => {
+                recommendations += `<li>${brand}</li>`;
+            });
+            recommendations += `</ul>`;
         } else {
-            recommendations += '<p>A balanced adult dog food with moderate protein and fat should work well.</p>';
+            recommendations += `<p>We don't have recommendations for this breed yet.</p>`;
         }
 
+        // Add dietary preferences
         if (diet === 'grain-free') {
-            recommendations += '<p>Look for grain-free options with ingredients like sweet potato and pea.</p>';
+            recommendations += '<p>For a grain-free option, consider "Brand M Grain-Free" for your dog.</p>';
         } else if (diet === 'hypoallergenic') {
-            recommendations += '<p>Hypoallergenic formulas with limited ingredients are best for dogs with sensitivities.</p>';
+            recommendations += '<p>For hypoallergenic needs, "Brand N Limited Ingredients" is a great choice.</p>';
         } else if (diet === 'senior') {
-            recommendations += '<p>Senior-specific formulas can help support joint health and weight management.</p>';
+            recommendations += '<p>Consider "Brand O Senior Formula" for older dogs.</p>';
         } else if (diet === 'puppy') {
-            recommendations += '<p>Puppy-specific formulas are designed for rapid growth and development.</p>';
+            recommendations += '<p>Look into "Brand P Puppy Formula" for growing pups.</p>';
         }
-
-        // Add more specific recommendations here if desired
     } else {
         recommendations = '<p>Please fill out all fields to get recommendations.</p>';
     }
