@@ -1,94 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const dogFoodData = {
-        "Labrador Retriever": {
-            "Puppy": [
-                {
-                    "brand": "Royal Canin Labrador Retriever Puppy",
-                    "image": "https://images.chewy.com/is/image/catalog/158428_MAIN._AC_SL1500_V1510208220_.jpg",
-                    "link": "https://www.chewy.com/royal-canin-labrador-retriever-puppy/dp/158428",
-                },
-                {
-                    "brand": "Hill's Science Diet Puppy Large Breed",
-                    "image": "https://images.chewy.com/is/image/catalog/282173_MAIN._AC_SL1500_V1610627607_.jpg",
-                    "link": "https://www.chewy.com/hills-science-diet-large-breed-puppy/dp/282173",
-                },
-            ],
-            "Adult": [
-                {
-                    "brand": "Blue Buffalo Life Protection Formula",
-                    "image": "https://images.chewy.com/is/image/catalog/292840_MAIN._AC_SL1500_V1556680863_.jpg",
-                    "link": "https://www.chewy.com/blue-buffalo-life-protection-formula/dp/292840",
-                },
-                {
-                    "brand": "Royal Canin Labrador Retriever Adult",
-                    "image": "https://images.chewy.com/is/image/catalog/291438_MAIN._AC_SL1500_V1510208221_.jpg",
-                    "link": "https://www.chewy.com/royal-canin-labrador-retriever-adult/dp/291438",
-                },
-            ],
-            "Senior": [
-                {
-                    "brand": "Hill's Science Diet Senior",
-                    "image": "https://images.chewy.com/is/image/catalog/269122_MAIN._AC_SL1500_V1600756508_.jpg",
-                    "link": "https://www.chewy.com/hills-science-diet-adult-senior/dp/269122",
-                },
-            ],
-        },
-        "German Shepherd": {
-            "Puppy": [
-                {
-                    "brand": "Royal Canin German Shepherd Puppy",
-                    "image": "https://images.chewy.com/is/image/catalog/292090_MAIN._AC_SL1500_V1510208224_.jpg",
-                    "link": "https://www.chewy.com/royal-canin-german-shepherd-puppy/dp/292090",
-                },
-            ],
-            "Adult": [
-                {
-                    "brand": "Taste of the Wild High Prairie",
-                    "image": "https://images.chewy.com/is/image/catalog/103154_MAIN._AC_SL1500_V1629207765_.jpg",
-                    "link": "https://www.chewy.com/taste-wild-high-prairie-adult/dp/103154",
-                },
-            ],
-            "Senior": [
-                {
-                    "brand": "Wellness CORE Grain-Free Senior",
-                    "image": "https://images.chewy.com/is/image/catalog/186337_MAIN._AC_SL1500_V1576523793_.jpg",
-                    "link": "https://www.chewy.com/wellness-core-grain-free-senior/dp/186337",
-                },
-            ],
-        },
-        // Additional breeds and recommendations can be added here
-    };
+    const petForm = document.getElementById('pet-form');
+    const resultsDiv = document.getElementById('results');
 
-    // Function to get dog food recommendations
-    function getDogFoodRecommendations(breed, age) {
-        const recommendations = dogFoodData[breed]?.[age]; // Optional chaining
-        let output = '<h2>Your Recommendations:</h2>';
+    petForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent the form from submitting
 
-        if (recommendations) {
-            recommendations.forEach(food => {
-                output += `
-                    <div class="food-item">
-                        <img src="${food.image}" alt="${food.brand}">
-                        <h3>${food.brand}</h3>
-                        <a href="${food.link}" target="_blank">Shop Now</a>
-                    </div>
-                `;
-            });
-        } else {
-            output += '<p>No recommendations available for this selection.</p>';
-        }
-        document.getElementById('results').innerHTML = output;
-    }
-
-    // Event listener for the button
-    document.getElementById('start-button').addEventListener('click', () => {
         const breed = document.getElementById('breed').value;
         const age = document.getElementById('age').value;
+        const weight = document.getElementById('weight').value;
+        const diet = document.getElementById('diet').value;
 
-        if (breed && age) {
-            getDogFoodRecommendations(breed, age);
-        } else {
-            alert('Please select both breed and age.');
-        }
+        // Call your function to get recommendations based on these inputs
+        getDogFoodRecommendations(breed, age, weight, diet);
     });
+
+    function getDogFoodRecommendations(breed, age, weight, diet) {
+        // Basic recommendations logic (you can expand this)
+        let recommendations = [];
+        
+        // Sample food recommendations based on the breed
+        if (breed === "Labrador Retriever") {
+            recommendations.push("Labrador Retriever Specific Food");
+        } else if (breed === "German Shepherd") {
+            recommendations.push("German Shepherd Diet Formula");
+        } else if (breed === "Golden Retriever") {
+            recommendations.push("Golden Retriever Nutritional Mix");
+        } else {
+            recommendations.push("General Dog Food for " + breed);
+        }
+
+        // Adjust recommendations based on age
+        if (age === "<1") {
+            recommendations.push("Puppy Food");
+        } else if (age === "10+") {
+            recommendations.push("Senior Dog Food");
+        }
+
+        // Weight considerations
+        if (weight === "1-10") {
+            recommendations.push("Small Breed Food");
+        } else if (weight === "71-80") {
+            recommendations.push("Large Breed Food");
+        }
+
+        // Dietary preferences
+        if (diet === "grain-free") {
+            recommendations.push("Grain-Free Formula");
+        } else if (diet === "hypoallergenic") {
+            recommendations.push("Hypoallergenic Dog Food");
+        }
+
+        // Display the recommendations
+        resultsDiv.innerHTML = `
+            <h2>Recommended Dog Food:</h2>
+            <p>Breed: ${breed}</p>
+            <p>Age: ${age}</p>
+            <p>Weight: ${weight}</p>
+            <p>Dietary Preference: ${diet}</p>
+            <ul>
+                ${recommendations.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        `;
+    }
 });
