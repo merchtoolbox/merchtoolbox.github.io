@@ -29,4 +29,33 @@
 
 .tool:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tool h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tool p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4c78ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background-color: #0033cc;
+}
