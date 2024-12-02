@@ -1,14 +1,21 @@
-/* Main tools section */
+/* Section styling */
 .tool-section {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .tool-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #0033cc;
-    border-bottom: 2px solid #4c78ff;
+    border-bottom: 3px solid #4c78ff;
     padding-bottom: 5px;
+}
+
+/* Tools grid layout */
+.tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .tool {
@@ -16,34 +23,10 @@
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.tool h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.tool p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #555;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #4c78ff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    transition: background 0.2s;
-}
-
-.btn:hover {
-    background-color: #0033cc;
-}
+.tool:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.
