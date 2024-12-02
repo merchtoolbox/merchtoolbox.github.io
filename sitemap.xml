@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://example.com/</loc>
+      <loc>https://merchtools.github.io/</loc>
       <lastmod>2024-11-27</lastmod>
       <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://example.com/design-tools</loc>
-      <lastmod>2024-11-27</lastmod>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://example.com/research-tools</loc>
-      <lastmod>2024-11-27</lastmod>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://example.com/automation-tools</loc>
-      <lastmod>2024-11-27</lastmod>
-      <priority>0.8</priority>
    </url>
 </urlset>
