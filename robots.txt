@@ -3,3 +3,4 @@ Disallow: /private/
 Allow: /
 
 Sitemap: https://merchtools.github.io/sitemap.xml
+
